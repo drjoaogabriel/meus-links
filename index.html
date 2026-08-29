@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fisioterapia | Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone: #EFEAE2;
+    --bone-2: #E6DFD3;
+    --ink: #22303F;
+    --ink-soft: #4A5A68;
+    --brass: #B08A4E;
+    --brass-soft: #C9A876;
+    --line: rgba(34,48,63,0.14);
+    --radius: 14px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(120% 90% at 50% -10%, var(--bone-2) 0%, var(--bone) 55%),
+      var(--bone);
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    display:flex;
+    justify-content:center;
+    padding: 48px 20px 40px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  .page{
+    width:100%;
+    max-width:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  /* Signature: breathing ring — a slow inhale/exhale pulse behind the initials,
+     nodding to breath-led movement work without literal iconography */
+  .avatar-wrap{
+    position:relative;
+    width:104px;
+    height:104px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:26px;
+  }
+  .ring{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:1px solid var(--brass-soft);
+    opacity:0.55;
+    animation: breathe 6s ease-in-out infinite;
+  }
+  .ring.r2{
+    animation-delay:-3s;
+  }
+  @keyframes breathe{
+    0%   { transform:scale(0.86); opacity:0.55; }
+    50%  { transform:scale(1.14); opacity:0; }
+    100% { transform:scale(0.86); opacity:0.55; }
+  }
+  .avatar{
+    position:relative;
+    width:78px;
+    height:78px;
+    border-radius:50%;
+    background: linear-gradient(155deg, var(--ink) 0%, #2E4056 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:26px;
+    font-weight:500;
+    color:var(--bone);
+    letter-spacing:0.5px;
+    box-shadow: 0 8px 24px -8px rgba(34,48,63,0.45);
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:26px;
+    line-height:1.25;
+    margin:0 0 8px;
+    text-align:center;
+    letter-spacing:0.2px;
+  }
+
+  .role{
+    font-size:13px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+    margin-bottom:14px;
+    text-align:center;
+  }
+
+  .bio{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.55;
+    max-width:320px;
+    margin:0 0 36px;
+  }
+
+  .links{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .link-card{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    padding:16px 18px;
+    background:#FBF9F5;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    text-decoration:none;
+    color:var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .link-card:hover{
+    transform:translateY(-2px);
+    box-shadow: 0 10px 24px -12px rgba(34,48,63,0.28);
+    border-color: var(--brass-soft);
+  }
+  .link-card:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+
+  .icon{
+    flex:0 0 auto;
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    background: var(--bone-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .icon svg{ width:19px; height:19px; }
+
+  .link-text{ display:flex; flex-direction:column; gap:2px; }
+  .link-title{ font-size:15.5px; font-weight:600; }
+  .link-sub{ font-size:12.5px; color:var(--ink-soft); }
+
+  .arrow{
+    margin-left:auto;
+    color: var(--ink-soft);
+    font-size:16px;
+    transition: transform 0.18s ease;
+  }
+  .link-card:hover .arrow{ transform:translateX(3px); }
+
+  footer{
+    margin-top:38px;
+    font-size:12px;
+    color:var(--ink-soft);
+    text-align:center;
+    letter-spacing:0.03em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="avatar-wrap">
+      <div class="ring"></div>
+      <div class="ring r2"></div>
+      <div class="avatar">FT</div>
+    </div>
+
+    <h1>Dr.João Gabriel</h1>
+    <div class="role">Fisioterapeuta</div>
+    <p class="bio">Cuidado individualizado para movimento, recuperação e bem-estar. Entre em contato comigo pelos links abaixo.</p>
+
+    <nav class="links">
+
+      <a class="link-card" href="https://wa.me/5585991864345" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22303F" stroke-width="1.6"><path d="M20.5 11.9a8.4 8.4 0 1 1-3.7-6.9M20.5 3.5l-1 4.8-4.8-1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="link-text">
+          <span class="link-title">WhatsApp</span>
+          <span class="link-sub">Fale comigo diretamente</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://calendar.app.google/3tUKBphFxyhfz3ReA" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22303F" stroke-width="1.6"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 3v3M16 3v3" stroke-linecap="round"/></svg>
+        </span>
+        <span class="link-text">
+          <span class="link-title">Agendar consulta em consultório</span>
+          <span class="link-sub">Veja horários disponíveis</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://instagram.com/fisiojoaogabriel" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22303F" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="#22303F" stroke="none"/></svg>
+        </span>
+        <span class="link-text">
+          <span class="link-title">Instagram</span>
+          <span class="link-sub">Conteúdos, dicas e bastidores</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+
+      
+
+    </nav>
+
+    <footer> Dr. João Gabriel · Fisioterapeuta</footer>
+
+  </div>
+
+</body>
+</html>
