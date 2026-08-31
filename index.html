@@ -23,6 +23,7 @@
   html,body{margin:0;padding:0;}
 
   body{
+    position:relative;
     min-height:100vh;
     background:
       radial-gradient(120% 90% at 50% -10%, var(--bone-2) 0%, var(--bone) 55%),
@@ -32,13 +33,70 @@
     display:flex;
     justify-content:center;
     padding: 48px 20px 40px;
+    overflow-x:hidden;
   }
+
+  .bg-art{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    opacity:0.75;
+  }
+
+  .bg-art::before,
+  .bg-art::after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(34, 48, 63, 0.07);
+    border-radius:50%;
+  }
+
+  .bg-art::before{
+    width:540px;
+    height:540px;
+    left:-120px;
+    top:80px;
+  }
+
+  .bg-art::after{
+    width:480px;
+    height:480px;
+    right:-140px;
+    bottom:-40px;
+  }
+
+  .art{
+    position:absolute;
+    width:190px;
+    height:190px;
+    color: rgba(34, 48, 63, 0.08);
+    filter: drop-shadow(0 10px 18px rgba(34, 48, 63, 0.02));
+  }
+
+  .art svg{
+    width:100%;
+    height:100%;
+    display:block;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .art.dumbbell{ right:-14px; top:66px; transform:rotate(10deg); }
+  .art.band{ left:-18px; bottom:104px; transform:rotate(-14deg); }
+  .art.ball{ left:72px; top:128px; width:150px; height:150px; }
+  .art.therapy{ right:70px; bottom:70px; width:170px; height:170px; }
 
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
 
   .page{
+    position:relative;
+    z-index:1;
     width:100%;
     max-width:420px;
     display:flex;
@@ -78,6 +136,7 @@
     width:78px;
     height:78px;
     border-radius:50%;
+    overflow:hidden;
     background: linear-gradient(155deg, var(--ink) 0%, #2E4056 100%);
     display:flex;
     align-items:center;
@@ -89,6 +148,14 @@
     letter-spacing:0.5px;
     box-shadow: 0 8px 24px -8px rgba(34,48,63,0.45);
   }
+
+  .avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
 
   h1{
     font-family:'Fraunces', serif;
@@ -181,16 +248,73 @@
     text-align:center;
     letter-spacing:0.03em;
   }
+  .calendly-btn{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--bone);
+    padding:10px 16px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow: 0 8px 18px -10px rgba(34,48,63,0.35);
+    transition:transform .14s ease, box-shadow .14s ease;
+  }
+  .calendly-btn:hover{ transform:translateY(-3px); box-shadow: 0 14px 30px -16px rgba(34,48,63,0.36); }
 </style>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
+
+  <div class="bg-art" aria-hidden="true">
+    <div class="art dumbbell">
+      <svg viewBox="0 0 180 180" aria-hidden="true">
+        <rect x="44" y="74" width="92" height="14" rx="6"/>
+        <rect x="18" y="58" width="20" height="46" rx="8"/>
+        <rect x="142" y="58" width="20" height="46" rx="8"/>
+        <circle cx="28" cy="59" r="11"/>
+        <circle cx="152" cy="59" r="11"/>
+        <circle cx="28" cy="106" r="11"/>
+        <circle cx="152" cy="106" r="11"/>
+        <path d="M58 35v18M76 35v18M104 35v18M122 35v18"/>
+      </svg>
+    </div>
+
+    <div class="art band">
+      <svg viewBox="0 0 180 180" aria-hidden="true">
+        <path d="M28 44c18 12 30 23 46 36s28 26 46 38c15 10 28 18 42 22"/>
+        <path d="M28 86c18 8 30 15 46 25s28 22 46 31c15 9 28 16 42 20"/>
+        <path d="M28 128c18 0 30 4 46 12s28 17 46 26c15 8 28 12 42 15"/>
+        <path d="M42 22v32M60 20v38M138 27v34M156 23v42"/>
+        <circle cx="28" cy="44" r="8"/>
+        <circle cx="152" cy="43" r="8"/>
+      </svg>
+    </div>
+
+    <div class="art ball">
+      <svg viewBox="0 0 180 180" aria-hidden="true">
+        <circle cx="90" cy="92" r="42"/>
+        <path d="M90 50v84M48 92h84M62 66c9 7 15 12 28 12s20-5 28-12M62 118c9-7 15-12 28-12s20 5 28 12"/>
+      </svg>
+    </div>
+
+    <div class="art therapy">
+      <svg viewBox="0 0 180 180" aria-hidden="true">
+        <path d="M42 52h96v12H42zM55 64v58M89 64v58M125 64v58M42 122h96"/>
+        <path d="M62 122c0 20 12 26 28 26s28-6 28-26"/>
+        <path d="M40 32c12 8 22 10 32 10M108 32c12 8 22 10 32 10"/>
+      </svg>
+    </div>
+  </div>
 
   <div class="page">
 
     <div class="avatar-wrap">
       <div class="ring"></div>
       <div class="ring r2"></div>
-      <div class="avatar">FT</div>
+      <div class="avatar">
+        <img src="perfil.jpeg" alt="Dr. João Gabriel" onerror="this.style.display='none'">
+      </div>
     </div>
 
     <h1>Dr.João Gabriel</h1>
@@ -210,7 +334,7 @@
         <span class="arrow">→</span>
       </a>
 
-      <a class="link-card" href="https://calendar.app.google/3tUKBphFxyhfz3ReA" target="_blank" rel="noopener">
+      <a class="link-card" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/jgabrielosousa/30min'});return false;" rel="noopener">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#22303F" stroke-width="1.6"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 3v3M16 3v3" stroke-linecap="round"/></svg>
         </span>
@@ -236,7 +360,11 @@
 
     </nav>
 
-    <footer> Dr. João Gabriel · Fisioterapeuta</footer>
+    <!-- popup button removed; calendar opens from the card above -->
+
+    <!-- inline Calendly widget removed; scheduling opens via the card popup -->
+
+    <footer> Dr. João Gabriel · Fisioterapeuta · 353580-F</footer>
 
   </div>
 
